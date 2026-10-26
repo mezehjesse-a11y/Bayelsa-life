@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bayelsa Life | Community News & Updates</title>
+
+    <meta name="description"
+          content="Bayelsa Life brings you community news, local stories, land dispute updates, and peacebuilding efforts in Bayelsa State.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #087443;
+            --dark: #10271e;
+            --gold: #f4b942;
+            --light: #f4f7f5;
+            --white: #ffffff;
+            --text: #27352e;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--dark);
+            color: var(--white);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .breaking {
+            background: var(--gold);
+            padding: 10px 7%;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .hero {
+            min-height: 430px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8, 35, 24, 0.95),
+                    rgba(8, 35, 24, 0.55)
+                ),
+                url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 680px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 55px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 28px;
+            max-width: 600px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 13px 23px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #075c36;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1200px;
+            margin: 55px auto;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 29px;
+            color: var(--dark);
+        }
+
+        .section-heading p {
+            color: #68756d;
+            margin-top: 5px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-image {
+            height: 190px;
+            background: #dce8df;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+        }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .category {
+            color: var(--green);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            line-height: 1.35;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #647168;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .peace-section {
+            background: var(--dark);
+            color: white;
+            padding: 55px 7%;
+            text-align: center;
+        }
+
+        .peace-section h2 {
+            font-size: 31px;
+            margin-bottom: 15px;
+        }
+
+        .peace-section p {
+            max-width: 750px;
+            margin: 0 auto 24px;
+            color: #d6e2da;
+        }
+
+        .peace-section .button {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .community-item {
+            padding: 25px;
+            background: white;
+            border-left: 4px solid var(--green);
+            border-radius: 5px;
+        }
+
+        .community-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .community-item p {
+            color: #68756d;
+            font-size: 14px;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 35px;
+            border-radius: 9px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .contact-section p {
+            margin-bottom: 20px;
+            color: #68756d;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d4ddd6;
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #091a12;
+            color: white;
+            text-align: center;
+            padding: 30px 7%;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: #bdc9c1;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: var(--gold);
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .news-grid,
+            .community-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero {
+                padding: 65px 7%;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .news-grid,
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .container {
+                width: 90%;
+                margin: 38px auto;
+            }
+
+            .hero {
+                min-height: 400px;
+            }
+
+            .contact-section {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">BAYELSA <span>LIFE</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#news">Latest News</a>
+            <a href="#land-dispute">Land Dispute</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="breaking">
+        BAYELSA LIFE NEWS &nbsp; | &nbsp;
+        Bringing Community Stories to Light
+    </div>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <span class="hero-label">COMMUNITY NEWS & CURRENT AFFAIRS</span>
+
+            <h1>Bayelsa Life: Our Land, Our People, Our Future</h1>
+
+            <p>
+                Follow community stories, land ownership concerns,
+                developments involving Apia and Ijaw communities,
+                and efforts to build lasting peace across Bayelsa.
+            </p>
+
+            <a href="#news" class="button">Explore Latest Stories</a>
+
+        </div>
+    </section>
+
+    <section class="container" id="news">
+
+        <div class="section-heading">
+            <h2>Latest Community Stories</h2>
+            <p>News, developments, and issues affecting our communities.</p>
+        </div>
+
+        <div class="news-grid">
+
+            <article class="card">
+                <div class="card-image">📰</div>
+
+                <div class="card-content">
+                    <span class="category">Land & Community</span>
+
+                    <h3>Understanding the Land Dispute</h3>
+
+                    <p>
+                        Learn about the concerns surrounding land ownership,
+                        community boundaries, and the importance of hearing
+                        all sides before drawing conclusions.
+                    </p>
+
+                    <a href="#land-dispute" class="read-more">
+                        Read More →
+                    </a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">🤝</div>
+
+                <div class="card-content">
+                    <span class="category">Peace & Unity</span>
+
+                    <h3>A Call for Peace Between Communities</h3>
+
+                    <p>
+                        Explore peaceful approaches to resolving disputes
+                        through dialogue, respected community leaders,
+                        mediation, and lawful processes.
+                    </p>
+
+                    <a href="#peace" class="read-more">
+                        Read More →
+                    </a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image">🌍</div>
+
+                <div class="card-content">
+                    <span class="category">Bayelsa Affairs</span>
+
+                    <h3>Protecting Our Shared Future</h3>
+
+                    <p>
+                        Discover why accurate information, respect for
+                        community traditions, and cooperation matter
+                        for the next generation.
+                    </p>
+
+                    <a href="#community" class="read-more">
+                        Read More →
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="container" id="land-dispute">
+
+        <div class="section-heading">
+            <h2>Apia and Ijaw Land Dispute</h2>
+
+            <p>
+                A dedicated section for verified reports and community
+                perspectives on land-related disagreements.
+            </p>
+        </div>
+
+        <div class="community-grid">
+
+            <div class="community-item">
+                <h3>📍 Land Ownership</h3>
+
+                <p>
+                    Report documented concerns about land ownership,
+                    boundaries, and claims. Important information should
+                    be checked against reliable records and relevant
+                    community authorities.
+                </p>
+            </div>
+
+            <div class="community-item">
+                <h3>📢 Community Voices</h3>
+
+                <p>
+                    Share respectful statements from community members.
+                    Give all affected parties a fair opportunity to
+                    explain their positions.
+                </p>
+            </div>
+
+            <div class="community-item">
+                <h3>⚖️ Lawful Resolution</h3>
+
+                <p>
+                    Highlight mediation, traditional leadership,
+                    appropriate government agencies, and legal
+                    procedures that can help resolve disputes.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="peace-section" id="peace">
+
+        <h2>Peace Is Better Than Conflict</h2>
+
+        <p>
+            Land is important, but protecting lives and preserving
+            the future of our communities matter too. Bayelsa Life
+            supports responsible reporting, peaceful dialogue,
+            and fair solutions to land disputes.
+        </p>
+
+        <a href="#contact" class="button">Share a Community Story</a>
+
+    </section>
+
+    <section class="container" id="community">
+
+        <div class="section-heading">
+            <h2>Our Community, Our Responsibility</h2>
+
+            <p>
+                Building a better Bayelsa through information,
+                accountability, and understanding.
+            </p>
+        </div>
+
+        <div class="community-grid">
+
+            <div class="community-item">
+                <h3>Reliable Information</h3>
+
+                <p>
+                    We aim to publish accurate reports and distinguish
+                    confirmed facts from allegations and opinions.
+                </p>
+            </div>
+
+            <div class="community-item">
+                <h3>Respect for Everyone</h3>
+
+                <p>
+                    Every community deserves to be heard without
+                    insults, discrimination, or collective blame.
+                </p>
+            </div>
+
+            <div class="community-item">
+                <h3>A Better Tomorrow</h3>
+
+                <p>
+                    We encourage young people to pursue education,
+                    peaceful engagement, and opportunities that
+                    strengthen their communities.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container" id="contact">
+
+        <div class="contact-section">
+
+            <h2>Submit a News Story</h2>
+
+            <p>
+                Have information about a community issue?
+                Use this form to prepare a submission for the
+                Bayelsa Life editorial team.
+            </p>
+
+            <form id="storyForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your name (optional)"
+                >
+
+                <select id="category" required>
+                    <option value="">Choose a story category</option>
+                    <option>Land Dispute</option>
+                    <option>Community News</option>
+                    <option>Peace Initiative</option>
+                    <option>Other Local News</option>
+                </select>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Story headline"
+                    required
+                >
+
+                <textarea
+                    id="story"
+                    placeholder="Describe what happened. Include the date, location, and sources where possible. Avoid unverified accusations."
+                    required
+                ></textarea>
+
+                <button type="submit" class="button">
+                    Prepare Story Submission
+                </button>
+
+            </form>
+
+            <p id="formMessage" aria-live="polite" style="margin-top:15px;"></p>
+
+        </div>
+    </section>
+
+    <footer>
+
+        <div class="logo">BAYELSA <span>LIFE</span></div>
+
+        <p>
+            Community news, local voices, and stories from Bayelsa State.
+        </p>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <p>
+            &copy; <span id="year"></span> Bayelsa Life.
+            All rights reserved.
+        </p>
+
+        <p>
+            We aim to promote responsible journalism and peaceful
+            resolution of community disputes.
+        </p>
+
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        document.getElementById("storyForm").addEventListener(
+            "submit",
+            function(event) {
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("name").value.trim();
+
+                const category =
+                    document.getElementById("category").value;
+
+                const title =
+                    document.getElementById("title").value.trim();
+
+                const story =
+                    document.getElementById("story").value.trim();
+
+                const message =
+                    document.getElementById("formMessage");
+
+                const submission = [
+                    "BAYELSA LIFE — STORY SUBMISSION",
+                    "Name: " + (name || "Not provided"),
+                    "Category: " + category,
+                    "Headline: " + title,
+                    "",
+                    "Story:",
+                    story
+                ].join("\n");
+
+                const file = new Blob(
+                    [submission],
+                    { type: "text/plain;charset=utf-8" }
+                );
+
+                const url = URL.createObjectURL(file);
+                const link = document.createElement("a");
+
+                link.href = url;
+                link.download = "bayelsa-life-submission.txt";
+                link.click();
+
+                URL.revokeObjectURL(url);
+
+                message.textContent =
+                    "Your story has been prepared as a text file. " +
+                    "It has not been sent to a website administrator.";
+
+                this.reset();
+            }
+        );
+    </script>
+
+</body>
+</html>
